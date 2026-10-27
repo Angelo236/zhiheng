@@ -1,0 +1,32 @@
+{
+  "name": "@zhiheng/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "个人多 Agent 管理平台",
+  "author": "知衡",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --mac dir dmg"
+  },
+  "devDependencies": {
+    "electron": "37.10.3",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "app.zhiheng.desktop",
+    "productName": "知衡",
+    "electronVersion": "37.10.3",
+    "directories": { "output": "release" },
+    "files": ["main.js", "preload.js"],
+    "extraResources": [
+      { "from": "../../services/api/dist", "to": "api" },
+      { "from": "../../apps/web/dist", "to": "web" }
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "identity": null,
+      "target": ["dir", "dmg"]
+    }
+  }
+}

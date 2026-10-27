@@ -1,0 +1,19 @@
+{
+  "name": "zhiheng",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "npm run dev -w @zhiheng/web",
+    "dev:api": "npm run dev -w @zhiheng/api",
+    "build": "npm run build -w @zhiheng/web && npm run build -w @zhiheng/api",
+    "desktop": "npm run start -w @zhiheng/desktop",
+    "pack": "npm run build && npm run pack -w @zhiheng/desktop",
+    "typecheck": "npm run typecheck -w @zhiheng/web && npm run typecheck -w @zhiheng/api"
+  }
+}
